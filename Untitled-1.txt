@@ -1,0 +1,11 @@
+app.get("/readTop", function (req, res) {
+            fs.readFileSync('top.txt', function read(err, data) {
+                if (err) {
+                    throw err;
+                }
+                res.body = data;
+            });
+
+            console.log(res.body);
+            res.send(200); 
+            });
