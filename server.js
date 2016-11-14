@@ -2,9 +2,7 @@
 //var util = require('util');
 var express = require('express');
 var app = express();
-app.listen(3000, function () {
-    console.log('listening');
-});
+
 //Creating Router() object
 //Add Orm 
 //var Sequelize = require('sequelize');
@@ -24,11 +22,10 @@ app.use(bodyParser());
 app.get("/readProducts", function (req, res) {
     fs.readFile('/Server/products.txt', function (err, data) {
         if (err) throw err;
-        //message = '' + data.toString();
         console.log('Data:' + data.toString());
         res.send(data.toString());
     });
-    
+
 });
 
 //Asyncronous write File
@@ -65,6 +62,10 @@ app.post("/writeProducts", function (req, res) {
     console.log(message);
     console.log("The products was saved!");
     res.send(200);
+});
+
+app.listen(process.env.PORT || 3000, function () {
+    console.log('listening');
 });
 
  /* serves all the static files */
