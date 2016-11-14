@@ -18,14 +18,21 @@ app.use(bodyParser());
 //      console.log(message);
 //      res.sendStatus(200);
 //  });
-//Asyncronous read File
-app.get("/readProducts", function (req, res) {
-    fs.readFile('/Server/products.txt', function (err, data) {
-        if (err) throw err;
-        console.log('Data:' + data.toString());
-        res.send(data.toString());
-    });
 
+//Asyncronous read File
+// app.get("/readProducts", function (req, res) {
+//     fs.readFile('/Server/products.txt', function (err, data) {
+//         if (err) throw err;
+//         console.log('Data:' + data.toString());
+//         res.send(data.toString());
+//     });
+
+// });
+app.get("/readProducts", function (req, res) {
+    var message = fs.readFileSync('products.txt').toString();
+    console.log(message);
+    res.send(message);
+    //res.sendStatus(200);
 });
 
 //Asyncronous write File
@@ -64,9 +71,9 @@ app.post("/writeProducts", function (req, res) {
     res.send(200);
 });
 
-app.listen(process.env.PORT || 3000, function () {
-    console.log('listening');
-});
+// app.listen(process.env.PORT || 3000, function () {
+//     console.log('listening');
+// });
 
  /* serves all the static files */
 
