@@ -71,9 +71,9 @@ app.post("/writeProducts", function (req, res) {
     res.send(200);
 });
 
-// app.listen(process.env.PORT || 3000, function () {
-//     console.log('listening');
-// });
+ app.listen(process.env.PORT || 3000, function () {
+     console.log('listening');
+ });
 
  /* serves all the static files */
 
