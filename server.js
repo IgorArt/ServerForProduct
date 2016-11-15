@@ -39,7 +39,7 @@ app.get("/readProducts", function (req, res) {
 app.post("/writeTop", function (req, res) {
     var message = JSON.stringify(req.body);
 
-    fs.writeFile('/Server/top.txt', message, function (err) {
+    fs.writeFile('top.txt', message, function (err) {
         if (err) {
             return console.log(err);
         }
@@ -61,7 +61,7 @@ app.get("/readTop", function (req, res) {
 //Asyncronous write File
 app.post("/writeProducts", function (req, res) {
     var message = JSON.stringify(req.body);
-    fs.writeFile("/Server/products.txt", message, function (err) {
+    fs.writeFile("products.txt", message, function (err) {
         if (err) {
             return console.log(err);
         }
